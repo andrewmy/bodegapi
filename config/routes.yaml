@@ -1,0 +1,16 @@
+index:
+  path: /
+  methods: [GET]
+  defaults:
+    _controller: App\Controller\DefaultController::index
+
+api_login:
+  path: /api/login
+  methods: [POST]
+
+docs:
+  path: /docs.{_format}
+  defaults:
+    _controller: api_platform.action.documentation
+    _api_respond: 1
+    _format: ~

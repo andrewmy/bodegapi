@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.5/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         bootstrap="tests/bootstrap.php"
+>
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <env force="true" name="KERNEL_CLASS" value="App\Kernel" />
+        <env force="true" name="APP_ENV" value="test" />
+        <env force="true" name="APP_DEBUG" value="false" />
+        <env force="true" name="APP_SECRET" value="s$cretf0rt3st" />
+        <env force="true" name="SHELL_VERBOSITY" value="-1" />
+
+        <env force="true" name="CORS_ALLOW_ORIGIN" value="^https?://localhost(:[0-9]+)?$"/>
+
+        <!-- <env name="DATABASE_URL" value="mysql://bodegapi_test:bodegapi_test@db:3306/bodegapi_test" /> -->
+        <env force="true" name="DATABASE_URL" value="sqlite:////tmp/bodegapi.sqlite" />
+        <env force="true" name="WEB_HOSTNAME" value="bodegapi.lvh.me" />
+        <env force="true" name="WEB_SCHEME" value="http" />
+        <env force="true" name="BOOTSTRAP_CLEAR_CACHE_ENV" value="test"/>
+        <env force="true" name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
+
+        <env force="true" name="JWT_SECRET_KEY" value="%kernel.project_dir%/config/jwt/test/private.pem"/>
+        <env force="true" name="JWT_PUBLIC_KEY" value="%kernel.project_dir%/config/jwt/test/public.pem"/>
+        <env force="true" name="JWT_PASSPHRASE" value="b5acd4bbdcd419ea2388da010ec26721"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Project Test Suite">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./src/</directory>
+        </whitelist>
+    </filter>
+
+    <listeners>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+        <listener class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitListener" />
+    </listeners>
+</phpunit>

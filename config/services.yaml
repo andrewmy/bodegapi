@@ -1,0 +1,28 @@
+parameters:
+    locale: en
+    default_vat_rate: 0.21
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    App\Api\DocumentationDecorator:
+        decorates: 'api_platform.swagger.normalizer.documentation'
+        arguments: ['@App\Api\DocumentationDecorator.inner']
+
+    app.api.documentation_decorator_hydra:
+        class: App\Api\DocumentationDecorator
+        decorates: 'api_platform.hydra.normalizer.documentation'
+        arguments: ['@App\Api\DocumentationDecorator.inner']
+
+    App\DataFixtures\Products:
+        arguments: ["%default_vat_rate%"]

@@ -1,0 +1,18 @@
+/.env.local
+/public/bundles/
+/var/
+/vendor/
+
+.phpunit
+/phpunit.xml
+
+/.idea
+/.php_cs.cache
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

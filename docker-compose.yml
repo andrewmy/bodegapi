@@ -1,0 +1,56 @@
+version: '3.6'
+
+services:
+
+  php_app:
+    build:
+      context: .
+      target: app
+      args:
+        jwt_passphrase: camels_fly_to_the_west
+    restart: always
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - ./:/var/www/html:delegated
+    environment:
+      - "DATABASE_URL=mysql://bodegapi:bodegapi@db:3306/bodegapi"
+      - MYSQL_HOST=db
+      - MYSQL_USER=bodegapi
+      - MYSQL_PASSWORD=bodegapi
+      - MYSQL_DATABASE=bodegapi
+      - APP_SECRET=bodegas_ftw
+      - APP_ENV=dev
+      - CORS_ALLOW_ORIGIN="^https?://localhost(:[0-9]+)?$$" # escape $
+      - WEB_HOSTNAME=bodega.lvh.me
+      - WEB_SCHEME=http
+      - JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
+      - JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
+      - JWT_PASSPHRASE=camels_fly_to_the_west
+
+  db:
+    image: yobasystems/alpine-mariadb
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=bodegapi
+      - MYSQL_USER=bodegapi
+      - MYSQL_PASSWORD=bodegapi
+    volumes:
+      - dbvol:/var/lib/mysql
+
+  nginx:
+    image: "evild/alpine-nginx:1.11.5"
+    links:
+      - php_app
+    volumes:
+      - ./:/var/www/html:ro
+      - ./docker/etc/nginx/conf.d:/etc/nginx/conf.d:ro
+    ports:
+      - "1080:80"
+    restart: always
+
+volumes:
+  dbvol:
