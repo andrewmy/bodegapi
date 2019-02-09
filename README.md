@@ -2,12 +2,12 @@
  
  ![Travis CI build status](https://travis-ci.com/andrewmy/bodegapi.svg?branch=master)
  
- This is a sample JSON REST API project on API Platform.
+ This is a sample JSON REST API project implemented using [API Platform](https://api-platform.com).
  
  ## Running
  
  1. `docker-compose up` — containers with all the dev dependencies.
- 2. Visit `http://127.0.0.1:1080/docs` for API documentation
+ 2. Visit http://127.0.0.1:1080/docs for API documentation
  
  ## Preparing data from CLI
  
@@ -17,7 +17,7 @@
  
  ## API
  
- Visit `http://127.0.0.1:1080/docs` for API documentation with example requests and responses.
+ Visit http://127.0.0.1:1080/docs for API documentation with sample requests and responses.
  
  - Available to anonymous users:
    - Login:
