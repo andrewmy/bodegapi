@@ -104,6 +104,9 @@
     "facebook/webdriver": {
         "version": "1.6.0"
     },
+    "fig/link-util": {
+        "version": "1.0.0"
+    },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.36"
     },
@@ -159,6 +162,9 @@
         "version": "1.0.1"
     },
     "psr/container": {
+        "version": "1.0.0"
+    },
+    "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
@@ -376,6 +382,9 @@
     },
     "symfony/var-exporter": {
         "version": "v4.2.3"
+    },
+    "symfony/web-link": {
+        "version": "v4.2.11"
     },
     "symfony/yaml": {
         "version": "v4.2.3"
