@@ -104,9 +104,6 @@
     "facebook/webdriver": {
         "version": "1.6.0"
     },
-    "fig/link-util": {
-        "version": "1.0.0"
-    },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.36"
     },
@@ -149,6 +146,9 @@
     "ocramius/proxy-manager": {
         "version": "2.2.2"
     },
+    "php": {
+        "version": "7.2"
+    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -162,9 +162,6 @@
         "version": "1.0.1"
     },
     "psr/container": {
-        "version": "1.0.0"
-    },
-    "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
@@ -350,6 +347,9 @@
     "symfony/serializer": {
         "version": "v4.2.3"
     },
+    "symfony/serializer-pack": {
+        "version": "v1.0.3"
+    },
     "symfony/stopwatch": {
         "version": "v4.2.3"
     },
@@ -382,9 +382,6 @@
     },
     "symfony/var-exporter": {
         "version": "v4.2.3"
-    },
-    "symfony/web-link": {
-        "version": "v4.2.11"
     },
     "symfony/yaml": {
         "version": "v4.2.3"
