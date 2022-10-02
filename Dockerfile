@@ -26,7 +26,7 @@ RUN NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) \
     	-out config/jwt/public.pem -passin pass:${jwt_passphrase} \
 	&& apk del .build-deps
 
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY ./docker/php.ini /usr/local/etc/php/conf.d/
 
